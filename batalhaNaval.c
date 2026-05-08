@@ -1,26 +1,58 @@
 #include <stdio.h>
 
+#define LINHA 10
+#define COLUNA 9
+
 int main() {
 
     int navyWar[10][10] = {{0,0,0,0,0,0,0,0,0,0},
                            {0,0,0,0,0,0,0,0,0,0},
                            {0,0,0,0,0,0,0,0,0,0},
-                           {0,0,0,0,3,0,0,0,0,0},
-                           {0,0,0,0,3,0,0,0,0,0},
-                           {0,0,0,0,3,0,0,0,0,0},
                            {0,0,0,0,0,0,0,0,0,0},
-                           {0,0,0,0,0,3,3,3,0,0},
+                           {0,0,0,0,0,0,0,0,0,0},
+                           {0,0,0,0,0,0,0,0,0,0},
+                           {0,0,0,0,0,0,0,0,0,0},
+                           {0,0,0,0,0,0,0,0,0,0},
                            {0,0,0,0,0,0,0,0,0,0},
                            {0,0,0,0,0,0,0,0,0,0}};
 
     
-
-    for(int x = 0 ; x < 10 ; x++){
-        for(int y = 0 ; y <= 9 ; y++){
+    printf("Tabuleiro inicial:\n");
+    for(int x = 0 ; x < LINHA ; x++){
+        for(int y = 0 ; y <= COLUNA ; y++){
             printf("%d ", navyWar[x][y]);
         }
         printf("\n");
     }
+
+    printf("\nAdicionando navios:\n");
+    // Navio horizontal
+    for (int c = 1; c <= 3; c++) {
+        navyWar[3][c] = 3;
+    }
+
+    // Navio vertical
+    for (int l = 4; l <= 6; l++) {
+        navyWar[l][7] = 3;
+    }
+
+    // Navio diagonal principal (↘)
+    for (int i = 0; i < 4; i++) {
+        navyWar[i][i] = 3;
+    }
+
+    // Navio diagonal secundária
+    for (int i = 0; i < 4; i++) {
+        navyWar[i][9 - i] = 3;
+    }
+
+        for (int l = 0; l < LINHA; l++) {
+            for (int c = 0; c < COLUNA; c++) {
+                 printf("%d ", navyWar[l][c]);
+                }
+        printf("\n");
+    }
+
 
 
 
